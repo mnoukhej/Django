@@ -27,4 +27,5 @@ def calculator_view(request):
         except ValueError:
             result = 'Error: Invalid input'
 
+
     return render(request, 'calculator.html', {'result': result})
