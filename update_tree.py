@@ -1,3 +1,4 @@
+
 # update_tree.py
 # This script generates a directory tree structure and updates the README file with it.
 import os
@@ -16,46 +17,22 @@ def generate_tree(path=".", prefix=""):
             tree.extend(generate_tree(full_path, prefix + extension))
     return tree
 
-
 def update_readme(readme="README.md"):
     tree = "\n".join(generate_tree())
+    with open(readme, "r", encoding="utf-8") as f:
+        content = f.read()
 
     start = "<!-- TREE_START -->"
     end = "<!-- TREE_END -->"
     new_section = f"{start}\n```\n{tree}\n```\n{end}"
 
-    if os.path.exists(readme):
-        # Update existing README
-        with open(readme, "r", encoding="utf-8") as f:
-            content = f.read()
-        if start in content and end in content:
-            content = content.split(start)[0] + new_section + content.split(end)[1]
-        else:
-            # inject into Folder Structure section if it exists
-            if "## Folder Structure" in content:
-                content = content.replace("## Folder Structure", f"## Folder Structure\n\n{new_section}")
-            else:
-                content += f"\n\n{new_section}"
+    if start in content and end in content:
+        content = content.split(start)[0] + new_section + content.split(end)[1]
     else:
-        # Create a new README with default structure
-        content = f"""# Project 
+        content += f"\n\n{new_section}"
 
-## Project Overview
+    with open(readme, "w", encoding="utf-8") as f:
+        f.write(content)
 
-
-### ✨ Key Features
-
-
-## Folder Structure
-
-{new_section}
-
-
-## 🚀 Installation
-
-### For Linux / macOS
-
-1. Clone the repository:
-   ```bash
-   git clone <repo>
-"""
+if __name__ == "__main__":
+    update_readme()
