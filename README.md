@@ -9,7 +9,32 @@
 ## Folder Structure
 
 <!-- TREE_START -->
-
+```
+├── README.md
+├── calculator_project
+│   ├── calculator
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── migrations
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── templates
+│   │   │   └── calculator.html
+│   │   ├── tests.py
+│   │   └── views.py
+│   ├── calculator_project
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── manage.py
+│   └── requirements.txt
+├── requirements.txt
+├── setup.bat
+└── update_tree.py
+```
 <!-- TREE_END -->
 
 
