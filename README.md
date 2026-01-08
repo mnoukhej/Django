@@ -12,6 +12,7 @@
 ```
 ├── README.md
 ├── calculator_project
+│   ├── README.md
 │   ├── calculator
 │   │   ├── __init__.py
 │   │   ├── admin.py
@@ -30,7 +31,9 @@
 │   │   ├── urls.py
 │   │   └── wsgi.py
 │   ├── manage.py
-│   └── requirements.txt
+│   ├── requirements.txt
+│   ├── setup.bat
+│   └── update_tree.py
 ├── requirements.txt
 ├── setup.bat
 └── update_tree.py
